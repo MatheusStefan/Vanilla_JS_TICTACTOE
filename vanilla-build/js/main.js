@@ -9,23 +9,28 @@ const App = {
 
   //register all user events
   init() {
-    App.$.menu.addEventListener("click", (event) => {
-      App.$.menuItems.classList.toggle("hidden");
-    });
+    App.registerEventListeners()
+},
+registerEventListeners() {
+      App.$.menu.addEventListener("click", (event) => {
+        App.$.menuItems.classList.toggle("hidden");
+        console.log('Show the menu')
+      });
+      
+      App.$.resetBtn.addEventListener("click", (event) => {
+        console.log("Reset the game");
+      });
+      App.$.newRoundBtn.addEventListener("click", (event) => {
+        console.log("Add new round");
+      });
+      
+      App.$.squares.forEach(square => {
+          square.addEventListener('click', event => {
+              console.log(`Square with id ${event.target.id} was clicked`)
+          })
+      })
 
-    App.$.resetBtn.addEventListener("click", (event) => {
-      console.log("Reset the game");
-    });
-    App.$.newRoundBtn.addEventListener("click", (event) => {
-      console.log("Add new round");
-    });
-
-    App.$.squares.forEach(square => {
-        square.addEventListener('click', event => {
-            console.log(`Square with id ${event.target.id} was clicked`)
-        })
-    })
-  },
+  }
 };
 
 window.addEventListener("load", App.init);
