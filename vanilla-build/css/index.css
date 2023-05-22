@@ -158,6 +158,10 @@ button:hover {
 .square {
   border-radius: 5px;
   background-color: var(--gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
 }
 
 .square:hover {

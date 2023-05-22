@@ -27,6 +27,11 @@ registerEventListeners() {
       App.$.squares.forEach(square => {
           square.addEventListener('click', event => {
               console.log(`Square with id ${event.target.id} was clicked`)
+              
+              const icon = document.createElement("i")
+              icon.classList.add('fa-solid', 'fa-x', 'yellow')
+
+              event.target.replaceChildren(icon)
           })
       })
 
